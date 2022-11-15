@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\mycontroller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,5 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::view('index','insertRead');
+Route::get('/',[mycontroller::class,'readData']);
+Route::post('insertData',[mycontroller::class,'insert']);
 
