@@ -19,4 +19,6 @@ Route::get('/', function () {
 });
 Route::get('/',[mycontroller::class,'readData']);
 Route::post('insertData',[mycontroller::class,'insert']);
-
+Route::get('updatedelete',[mycontroller::class,'updateordelete']);
+Route::get('updatedata',[mycontroller::class,'update']);
+Route::view('/update','updateView');

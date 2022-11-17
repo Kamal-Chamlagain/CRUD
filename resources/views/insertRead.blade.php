@@ -43,14 +43,24 @@
         <th>Product Name</th>
         <th>Product Price</th>
         <th>Image</th>
+        <th>Action</th>
       </thead>
       <tbody>
         @foreach($data as $item)
         <tr>
-          <td class="pt-5">{{$item['Id']}}</td>
-          <td class="pt-5">{{$item['pName']}}</td>
-          <td class="pt-5">{{$item['pPrice']}}</td>
-          <td><img src="images/{{$item['pImage']}}" alt="product_image" width="100px" height="100px"></td>
+          <form action="updatedelete" method="get">
+            <input type="hidden" value="{{$item['Id']}}" name="pId">
+            <input type="hidden" value="{{$item['pName']}}" name="pName">
+            <input type="hidden" value="{{$item['pPrice']}}" name="pPrice">
+            <td class="pt-5">{{$item['Id']}}</td>
+            <td class="pt-5">{{$item['pName']}}</td>
+            <td class="pt-5">{{$item['pPrice']}}</td>
+            <td><img src="images/{{$item['pImage']}}" alt="product_image" width="100px" height="100px"></td>
+            <td class="pt-5">
+              <input type="Submit" class="btn btn-outline-primary" name="update" value="Update">
+              <input type="Submit" class="btn btn-outline-danger" name="delete" value="Delete">
+            </td>
+          </form>
         </tr>
         @endforeach
       </tbody>
